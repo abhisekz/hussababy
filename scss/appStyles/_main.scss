@@ -1,0 +1,602 @@
+/*-----------------------------------------------------------------------------------------
+FONT FACES
+-----------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'lobster';
+    src: url("../lib/ionic/fonts/Lobster_1_4.eot");
+    src: url("../lib/ionic/fonts/Lobster_1_4.eot") format('embedded-opentype'),
+         url("../lib/ionic/fonts/Lobster_1_4.woff") format('woff'),
+         url("../lib/ionic/fonts/Lobster_1_4.ttf") format('truetype'),
+         url("../lib/ionic/fonts/Lobster_1_4.svg#Bariol_Regular") format('svg');
+    font-weight: normal;
+  	font-style: normal;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../lib/ionic/fonts/Pacifico.eot');
+  src: url('../lib/ionic/fonts/Pacifico.woff2') format('woff2'),
+       url('../lib/ionic/fonts/Pacifico.woff') format('woff'),
+       url('../lib/ionic/fonts/Pacifico.ttf') format('truetype'),
+       url('../lib/ionic/fonts/Pacifico.svg#Pacifico') format('svg'),
+       url('../lib/ionic/fonts/Pacifico.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArialMT-Black';
+  src: url('../lib/ionic/fonts/ArialMT-Black.eot') format('embedded-opentype');
+  src: url('../lib/ionic/fonts/ArialMT-Black.eot');
+  src: url('../lib/ionic/fonts/ArialMT-Black.woff') format('woff'),
+       url('../lib/ionic/fonts/ArialMT-Black.ttf') format('truetype'),
+       url('../lib/ionic/fonts/ArialMT-Black.svg#ArialMT-Black') format('svg'),
+       url('../lib/ionic/fonts/ArialMT-Black.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+DAY THEME VARIABLES
+-----------------------------------------------------------------------------------------*/
+
+$brandPrimary : rgb(126,197,215);
+$brandSecondary: rgb(255 ,161, 107);
+$brandTertiary : rgb(242, 109, 105);
+
+$brandDark : rgb(223, 88 ,87);
+$white : rgb(255, 255, 255);
+$grey : rgb(235, 235, 235);
+$transparent : rgba( 0, 0, 0, 0.5);
+
+$shadow : rgba( 0, 0, 0, 0.2);
+
+$cream : rgb(254, 246, 226);
+$contrast : rgb(225, 136, 86);
+$fontDefault  : 'lobster';
+
+$button-bg : rgb(106, 174, 185);
+
+$gradient : linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(235,235,235,1) 100%);
+
+
+/*-----------------------------------------------------------------------------------------
+NIGHT THEME VARIABLES
+-----------------------------------------------------------------------------------------*/
+
+
+$darkBrandPrimary : rgb(0,0,0);
+$colorTxt : rgb(106, 174, 185);
+$black : rgb(0,0,0);
+$darkText : rgb(119, 119, 119);
+$dark-button-bg : rgb(42,42,42);
+$settingsTxt : rgb(164,164,164);
+$darkGradient : linear-gradient(to bottom, $brandTertiary 0%,$brandDark 100%);
+$handleGradient : linear-gradient(to bottom, rgb(36,36,36) 0%,$darkBrandPrimary 100%);
+
+$buttonGradient : linear-gradient(to bottom, rgb(74,74,74) 0%, rgb(36,36,36) 100%);
+$playCtrlGradient : linear-gradient(to bottom, $button-bg 0%, rgb(126,197,215) 100%);
+
+$redHome : rgb(196, 108, 58);
+
+/*-----------------------------------------------------------------------------------------
+DEFAULT CSS
+-----------------------------------------------------------------------------------------*/
+body, h1, h2, h3, h4 {
+    font-family: $fontDefault;
+}
+svg {
+    fill: $white;
+}
+.day-ico, .night-ico {
+    display: none;
+}
+.day .day-ico,
+.night .night-ico {
+    display: block;
+}
+.bar-app {
+    background: $brandPrimary;
+    border: none;
+    h1.title {
+        color: $white;
+        font-size: 32px;
+        text-shadow: 1px 1px $shadow;
+    }
+    .button {
+        color: $white;
+        line-height: 70px;
+        svg {
+            width: 35px;
+            height: 35px;
+            
+        }
+    }
+}
+.night {
+    .bar-app {
+        background: $darkBrandPrimary;
+        h1.title {
+            color: $colorTxt;
+        }
+        .button {
+            color: $colorTxt;
+            svg {
+                fill: $colorTxt;
+            }
+        }
+    }
+}
+.main-content {
+    background: $brandPrimary;
+}
+.night {
+    .main-content {
+        background: $darkBrandPrimary;
+    }
+}
+
+.component {
+    border-radius: 50%;
+    padding: 5px;
+    margin: 0 auto;
+    border: 10px solid $cream;
+    .inner {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border-radius: 50%;
+        border: 3px dotted $cream;
+        svg {
+            height: 115px;
+            width: 125px;
+            margin: 40px auto 20px;
+            display: block;
+        }
+    }
+}
+.night {
+    .component {
+        border: 10px solid $contrast;
+        .inner {
+            border: 3px dotted $contrast;
+            svg {
+                fill: $contrast;
+            }
+        }
+    }
+}
+.play-title {
+    @extend .component;
+    background: $brandSecondary;
+    height: 20em;
+    width: 20em;
+    position: relative;
+    .item-txt {
+        font-size: 2em;
+        color: $transparent;
+        font-family: 'lobster';
+        text-align: center;
+    }
+    .play-icon {
+        font-size: 10em;
+        color: $white;
+        display: block;
+        margin: 30px auto 10px;
+        text-align: center;
+    }
+}
+.night {
+    .play-title {
+        background: $darkBrandPrimary;
+        .item-txt {
+            color: $darkText;
+        }
+        .play-icon {
+            color: $white;
+        }
+    }
+}
+.timer {
+    @extend .component;
+    background: $brandTertiary;
+    height: 15em;
+    width: 15em;
+    margin-top: -5em;
+    .clock{
+        padding-top: 1.8em;
+        font-size: 3em;
+        color: $cream;
+        font-family: Arial;
+        text-align: center;
+        span {
+            font-family: lobster;
+            font-size: .35em;
+            color: $transparent;
+        }
+        .min {
+            
+        }
+    }
+}
+.night {
+    .timer {
+        background: $darkBrandPrimary;
+        border-color: $brandDark;
+        .inner {
+            border-color: $brandDark;
+        }
+        .clock{
+            color: $brandDark;
+            font-family: Arial;
+            span {
+                color: $darkText;
+            }
+        }
+    }
+}
+.play-control {
+    background: $button-bg;
+    width: 7em;
+    height: 7em;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px $shadow inset;
+    margin: 20px auto;
+    display: block;
+    padding: 6px;
+    span {
+        background: $gradient; 
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 0px 1px 2px $transparent;
+        font-size: 18px;
+        font-family: ArialMT-Black;
+        font-weight: bold;
+        color: $brandTertiary;
+        line-height: 5.5em;
+    }
+}
+.night {
+    .play-control {
+        background: $dark-button-bg;
+        box-shadow: 0 1px 2px $shadow inset;
+        span {
+            background: $darkGradient; 
+            box-shadow: 0px 1px 2px $transparent;
+            color: $black;
+        }
+    }
+}
+.settings {
+    background: $brandTertiary;
+}
+.settings-list {
+    border : {
+        width: 10px 0;
+        color: $cream;
+        style: solid;
+    }
+    .item {
+        background: $brandSecondary;
+        color: $white;
+        font-size: 24px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-shadow: 1px 1px 1px $shadow;
+        .toggle {
+            top: 15px;
+            .track {
+                background: $contrast;
+                border-color: transparent;
+            }
+            .handle {
+                background: $gradient;
+            }
+        }
+        .toggle.toggle-active input:checked + .track {
+            background: $brandDark;
+        }
+    }
+}
+.night {
+    .settings {
+        background: $darkBrandPrimary;
+    }
+    .settings-list {
+        border : {
+            color: $contrast;
+            bottom-color: $brandDark;
+        }
+        .item {
+            background: $darkBrandPrimary;
+            color: $settingsTxt;
+            border: none;
+            .toggle {
+                .track {
+                    background: $darkText;
+                    border-color: transparent;
+                }
+                .handle {
+                    background: $handleGradient;
+                }
+            }
+            .toggle.toggle-active input:checked + .track {
+                background: $contrast;
+            }
+            &.first {
+                border-bottom: 3px dotted $contrast;
+            }
+        }
+    }
+}
+.app-content {
+    padding: 0 20px;
+    h3 {
+        color: $white;
+        text-shadow: 1px 1px $shadow;
+    }
+    p {
+        margin: 15px 0 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: $transparent;
+    }
+    .button {
+        border-radius: 100px;
+        font-family: lobster;
+        font-size: 18px;
+    }
+    .btn-custom {
+        background: $gradient;
+        color: $brandTertiary;
+        border: none;
+    }
+    .btn-clear {
+        background: transparent;
+        color: $white;
+        text-shadow: 1px 1px $shadow;
+    }
+}
+.night {
+    .app-content {
+        h3 {
+            color: $settingsTxt;
+        }
+        p {
+            color: $settingsTxt;
+        }
+        .button {
+
+        }
+        .btn-custom {
+            background: $buttonGradient;
+            color: $brandDark;
+        }
+        .btn-clear {
+            background: transparent;
+            color: $darkText;
+            text-shadow: 1px 1px $shadow;
+        }
+    }
+}
+div.hscroller {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); 
+}
+
+.play-select {
+    background: $brandSecondary;
+    border: 10px solid $cream;
+    width: 50em;
+    height: 50em;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    padding: 5px;
+    transform: translateY(0%) translateX(-50%);
+    z-index: 1;
+    .inner {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border-radius: 50%;
+        border: 3px dotted $cream;
+        svg {
+            height: 115px;
+            width: 125px;
+            margin: 40px auto 20px;
+            display: block;
+        }
+    }
+}
+.play-time {
+    @extend .play-select;
+    transform: translateY(36%) translateX(-50%);
+    width: 40em;
+    height: 40em;
+    background: $brandTertiary;
+    z-index: 2;
+}
+.play-control-wrap {
+    @extend .play-select;
+    transform: translateY(150%) translateX(-50%);
+    width: 18em;
+    height: 18em;
+    background: #f26d69;
+    z-index: 3;
+    .play-control {
+        background: $brandDark;
+        position: absolute;
+        left: 50%;
+        top: 41%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+.night {
+    .play-select, .play-time, .play-control-wrap {
+        background: transparent;
+    }
+    .play-select {
+        border-color: $redHome;
+        .inner {
+            border-color: $contrast;
+        }
+    }
+    .play-time {
+         border-color: $brandDark;
+         .inner {
+            border-color: $brandDark;
+        }
+    }
+    .play-control-wrap {
+        border-color: $button-bg;
+         .inner {
+            border-color: $button-bg;
+            .play-control {
+                background: $dark-button-bg;
+                span {
+                    background: $playCtrlGradient;
+                }
+                
+            }
+        }
+    }
+}
+.play-select-slide {
+    position: relative;
+    z-index: 10;
+    height: 180px;
+    top: 49px;
+    .swiper-slide-prev {
+        transform: rotate(20deg);
+    }
+    .swiper-slide {
+        text-align: center;
+        transform: rotate(20deg);
+        padding-top: 5px;
+        svg {
+            fill: #fff;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            top: 50px;
+        }
+        span {
+            display: none;
+        }
+    }
+    .swiper-slide-active {
+        transform: rotate(-20deg);
+    }
+    .swiper-slide-next {
+        transform: rotate(0deg);
+        svg {
+            fill: #fff;
+            width: 80px;
+            height: 80px;
+            top: 5px;
+        }
+        span {
+            display: block;
+            margin-top: 15px;
+            font-size: 18px;
+            color: $transparent;
+        }
+    }
+}
+.night {
+    .swiper-slide {
+        svg {
+            fill: $brandSecondary;
+        }
+        span {
+        }
+    }
+    .swiper-slide-next {
+      span {
+            color: $darkText;
+        }
+    }
+}
+.play-time-slide {
+    position: relative;
+    z-index: 10;
+    height: 180px;
+    top: 85px;
+    .label-txt {
+        text-align: center;
+        top: -115px;
+        position: relative;
+        font-size: 18px;
+        color: $transparent;
+    }
+    .swiper-slide-prev {
+        transform: rotate(36deg);
+    }
+    .swiper-slide {
+        text-align: center;
+        transform: rotate(36deg);
+        padding-top: 5px;
+        line-height: 140px;
+        .timer-item {
+            font-family: 'ArialMT-Black';
+            font-size: 40px;
+            color: $white;
+        }
+        span {
+            display: none;
+        }
+    }
+    .swiper-slide-active {
+        transform: rotate(-36deg);
+    }
+    .swiper-slide-next {
+        transform: rotate(0deg);
+        line-height: 50px;
+        .timer-item {
+            font-size: 50px;
+        }
+        span {
+            display: block;
+            margin-top: 15px;
+            font-size: 18px;
+            color: $transparent;
+        }
+    }
+}
+.night{
+    .play-time-slide {
+        .label-txt {
+            color: $darkText;
+        }
+        .swiper-slide {
+            .timer-item {
+                color: $brandDark;
+            }
+        }
+        .swiper-slide-next {
+            span {
+                color: $darkText;
+            }
+        }
+    }
+}
+/*-----------------------------------------------------------------------------------------
+DAY THEME STYLES
+-----------------------------------------------------------------------------------------*/
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+NIGHT THEME STYLES
+-----------------------------------------------------------------------------------------*/
