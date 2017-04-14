@@ -1,6 +1,6 @@
 <ion-view>
 <ion-header-bar class="bar-app">
-    <button class="button button-icon" ng-click="themeChange()">
+    <button class="button button-icon" ng-click="themeChanger()">
         <span class="day-ico">
             <svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
@@ -33,7 +33,7 @@
         </span>
     </button>
     <h1 class="title">Husha Baby</h1>
-    <a class="button button-icon" href="#/settings">
+    <button class="button button-icon" ng-click="openSettings()">
        <svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
             <title>Icn-Settings</title>
@@ -48,9 +48,9 @@
                 </g>
             </g>
         </svg>
-    </a>
+    </button>
 </ion-header-bar>
-<ion-content class="main-content">
+<ion-content class="main-content" scroll="false">
     
     <div class="play-title">
     <div class="inner">
@@ -62,7 +62,8 @@
     <div class="inner">
         
         <div class="clock">
-            <div class="ticker">{{ timeLeft | timecode }}</div>
+            <div class="ticker" ng-if="timeLeft < 10800">{{ timeLeft | timecode }}</div>
+            <div class="ticker" ng-if="timeLeft > 10800">&infin;</div>
             <div class="min">
                 <span>minutes</span>
                 <span>seconds</span>

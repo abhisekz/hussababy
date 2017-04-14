@@ -1,5 +1,5 @@
 <ion-header-bar class="bar-app">
-    <button class="button button-icon" ng-click="themeChange()">
+    <button class="button button-icon" ng-click="themeChanger()">
         <span class="day-ico">
             <svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
@@ -32,7 +32,7 @@
         </span>
     </button>
     <h1 class="title">Husha Baby</h1>
-    <a class="button button-icon" href="#/settings">
+    <button class="button button-icon" ng-click="openSettings()">
         <svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
             <title>Icn-Settings</title>
@@ -47,7 +47,7 @@
                 </g>
             </g>
         </svg>
-    </a>
+    </button>
 </ion-header-bar>
 <ion-content class="has-header main-content" scroll="false">
     <div class="play-select-slide">
@@ -61,8 +61,10 @@
     </div>
      <div class="play-time-slide">
          <ks-swiper-container initial-slide="0" speed="2000" loop="true" show-nav-buttons="false" slides-per-view="3"  space-between="0" pagination-clickable="false"  on-ready="onReadySwiper(swiper, 'time')">
-                <ks-swiper-slide class="swiper-slide" data-attr="{{s}}" ng-repeat="s in ['0','5','10','15','20','25','30']">
-                    <div class="timer-item">{{s}}</div>
+                <ks-swiper-slide class="swiper-slide" data-attr="{{s}}" ng-repeat="s in timer">
+                    <div class="timer-item" ng-if="s!=999">{{s}}</div>
+                    <div class="timer-item" ng-if="s===999">&infin;</div>
+                    
                 </ks-swiper-slide>   
                         
             </ks-swiper-container>
@@ -70,18 +72,7 @@
      </div>
     <div class="play-select">
         <div class="inner">
-            
-            <!--<ks-swiper-container initial-slide="3" speed="2000" loop="true" show-nav-buttons="false" slides-per-view="3" space-between="5" pagination-clickable="false" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 1,slideShadows : false}}"  on-ready="onReadySwiper(swiper)">
-                <ks-swiper-slide class="swiper-slide" ng-repeat="item in collection">
-                    <img ng-src="img/Icn-{{item.src}}.svg" width="100%">
-                </ks-swiper-slide>            
-            </ks-swiper-container>-->
-            
-            <!--<ks-swiper-container initial-slide="3" speed="2000" loop="true" show-nav-buttons="false" slides-per-view="3" centeredSlides="true" space-between="0" pagination-clickable="false"  on-ready="onReadySwiper(swiper)">
-                <ks-swiper-slide class="swiper-slide" ng-repeat="item in collection">
-                    <img ng-src="img/Icn-{{item.src}}.svg" width="100%">
-                </ks-swiper-slide>             
-            </ks-swiper-container> -->
+           
         </div>
     </div>
     <div class="play-time">

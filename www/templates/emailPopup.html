@@ -1,0 +1,27 @@
+<ion-modal-view>
+      <ion-header-bar class="bar-app email-popup">
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        <h1 class="title">Husha Baby</h1>
+        <button class="button button-clear button-primary" ng-click="sendMail(recipient, subject, message)">Send</button>
+      </ion-header-bar>
+      <ion-content class="email-composer">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">To</span>
+            <input type="email" value="hushababy@pinkbarracuda.com">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">From</span>
+            <input type="email" placeholder="user@email.com" ng-model="email.from">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Subject</span>
+            <input type="text" value="Husha Baby App" ng-model="email.subject">
+          </label>
+          <label class="item item-input email-body">
+           <textarea name="" id="" cols="30" rows="25" ng-model="email.message"></textarea>
+          </label>
+          
+        </div>
+      </ion-content>
+    </ion-modal-view>

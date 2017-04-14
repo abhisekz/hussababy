@@ -90,16 +90,22 @@ body, h1, h2, h3, h4 {
 svg {
     fill: $white;
 }
+.platform-android .bar .title {
+    font-size: 32px;
+    line-height: 60px;
+    text-align: center;
+}
 .day-ico, .night-ico {
     display: none;
 }
-.day .day-ico,
-.night .night-ico {
+.night .day-ico,
+.day .night-ico {
     display: block;
 }
 .bar-app {
     background: $brandPrimary;
     border: none;
+    transition: background 3s ease;
     h1.title {
         color: $white;
         font-size: 32px;
@@ -115,9 +121,24 @@ svg {
         }
     }
 }
+.email-popup {
+    h1.title {
+        font-family: 'ArialMT-Black';
+        font-size: 18px !important;
+        font-weight: bold;
+        text-shadow: none;
+        letter-spacing: 0;
+    }
+    .button {
+        line-height: 48px;
+        
+    }
+    
+}
 .night {
     .bar-app {
         background: $darkBrandPrimary;
+        transition: background 3s ease;
         h1.title {
             color: $colorTxt;
         }
@@ -131,10 +152,12 @@ svg {
 }
 .main-content {
     background: $brandPrimary;
+    transition: background 3s ease;
 }
 .night {
     .main-content {
         background: $darkBrandPrimary;
+        transition: background 3s ease;
     }
 }
 
@@ -143,27 +166,33 @@ svg {
     padding: 5px;
     margin: 0 auto;
     border: 10px solid $cream;
+    transition: background 3s ease;
     .inner {
         height: 100%;
         width: 100%;
         background: transparent;
         border-radius: 50%;
         border: 3px dotted $cream;
+        transition: background 3s ease;
         svg {
             height: 115px;
             width: 125px;
             margin: 40px auto 20px;
             display: block;
+            transition: background 3s ease;
         }
     }
 }
 .night {
     .component {
         border: 10px solid $contrast;
+        transition: background 3s ease;
         .inner {
             border: 3px dotted $contrast;
+            transition: background 3s ease;
             svg {
                 fill: $contrast;
+                transition: background 3s ease;
             }
         }
     }
@@ -175,7 +204,7 @@ svg {
     width: 20em;
     position: relative;
     .item-txt {
-        font-size: 2em;
+        font-size: 1.8em;
         color: $transparent;
         font-family: 'lobster';
         text-align: center;
@@ -186,6 +215,11 @@ svg {
         display: block;
         margin: 30px auto 10px;
         text-align: center;
+    }
+    @media (max-height: 570px){
+        height: 18.5em;
+        width: 18.5em;
+        border-width: 8px;
     }
 }
 .night {
@@ -219,6 +253,11 @@ svg {
         .min {
             
         }
+    }
+    @media (max-height: 570px){
+        height: 14em;
+        width: 14em;
+        margin-top: -5.5em;
     }
 }
 .night {
@@ -260,6 +299,9 @@ svg {
         color: $brandTertiary;
         line-height: 5.5em;
     }
+    @media (max-height: 570px){
+        margin: 10px auto;
+    }
 }
 .night {
     .play-control {
@@ -298,11 +340,25 @@ svg {
                 background: $gradient;
             }
         }
-        .toggle.toggle-active input:checked + .track {
+        .toggle input:checked + .track {
             background: $brandDark;
         }
+         &:first-of-type {
+            border-bottom: 3px dotted $cream;
+        }
+        p {
+            font-family: 'ArialMT-Black';
+            font-size: 16px;
+            text-shadow: none;
+            color: $transparent;
+            margin-top: 10px;
+            margin-bottom: -5px;
+        }
     }
+   
+
 }
+
 .night {
     .settings {
         background: $darkBrandPrimary;
@@ -325,11 +381,14 @@ svg {
                     background: $handleGradient;
                 }
             }
-            .toggle.toggle-active input:checked + .track {
+            .toggle input:checked + .track {
                 background: $contrast;
             }
-            &.first {
+             &:first-of-type {
                 border-bottom: 3px dotted $contrast;
+            }
+            p {
+                color: $settingsTxt;
             }
         }
     }
@@ -404,19 +463,24 @@ div.hscroller {
     padding: 5px;
     transform: translateY(0%) translateX(-50%);
     z-index: 1;
+    transition: background 3s ease;
+    
     .inner {
         height: 100%;
         width: 100%;
         background: transparent;
         border-radius: 50%;
         border: 3px dotted $cream;
+        transition: background 3s ease;
         svg {
             height: 115px;
             width: 125px;
             margin: 40px auto 20px;
             display: block;
         }
+        
     }
+    
 }
 .play-time {
     @extend .play-select;
@@ -425,6 +489,9 @@ div.hscroller {
     height: 40em;
     background: $brandTertiary;
     z-index: 2;
+    @media (max-height: 570px){
+        transform: translateY(30%) translateX(-50%);
+    }
 }
 .play-control-wrap {
     @extend .play-select;
@@ -439,6 +506,9 @@ div.hscroller {
         left: 50%;
         top: 41%;
         transform: translateY(-50%) translateX(-50%);
+    }
+    @media (max-height: 570px){
+        transform: translateY(130%) translateX(-50%);
     }
 }
 .night {
@@ -476,6 +546,28 @@ div.hscroller {
     z-index: 10;
     height: 180px;
     top: 49px;
+    &:before {
+        width: 0;
+        height: 0;
+        content: "";
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 9px solid #fef6e2;
+        position: absolute;
+        left: 48%;
+        top: -25px;
+    }
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 9px solid #fef6e2;
+        position: absolute;
+        left: 48%;
+        top: 75%;
+    }
     .swiper-slide-prev {
         transform: rotate(20deg);
     }
@@ -510,6 +602,38 @@ div.hscroller {
             margin-top: 15px;
             font-size: 18px;
             color: $transparent;
+            white-space: nowrap;
+        }
+        
+    }
+    @media (max-height: 570px){
+        height: 140px;
+        top: 48px;
+        .swiper-slide {
+            padding-top: 0px;
+            svg {
+                width: 50px;
+                height: 50px;
+                position: relative;
+                top: 50px;
+            }
+            span {
+                display: none;
+            }
+        }
+        .swiper-slide-next {
+            transform: rotate(0deg);
+            svg {
+                width: 70px;
+                height: 70px;
+                top: 0px;
+            }
+            span {
+                display: block;
+                margin-top: 0px;
+                font-size: 16px;
+                color: $transparent;
+            }
         }
     }
 }
@@ -526,12 +650,42 @@ div.hscroller {
             color: $darkText;
         }
     }
+    .play-select-slide {
+        &:before {
+            border-top: 9px solid $contrast;
+        }
+        &:after {
+            border-bottom: 9px solid $contrast;
+        }
+    }
 }
 .play-time-slide {
     position: relative;
     z-index: 10;
     height: 180px;
-    top: 85px;
+    top: 75px;
+    &:before {
+        width: 0;
+        height: 0;
+        content: "";
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 9px solid #fef6e2;
+        position: absolute;
+        left: 48%;
+        top: -20px;
+    }
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 9px solid #fef6e2;
+        position: absolute;
+        left: 48%;
+        top: 55%;
+    }
     .label-txt {
         text-align: center;
         top: -115px;
@@ -588,6 +742,25 @@ div.hscroller {
                 color: $darkText;
             }
         }
+    }
+    .play-time-slide {
+        &:before {
+            border-top: 9px solid $brandDark;
+        }
+        &:after {
+            border-bottom: 9px solid $brandDark;
+        }
+    }
+}
+
+.email-composer {
+    .input-label {
+        width: auto;
+        font-family: initial;
+        color: $darkText;
+    }
+    .item-input.email-body {
+        border-bottom: none;
     }
 }
 /*-----------------------------------------------------------------------------------------

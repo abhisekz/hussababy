@@ -1,8 +1,9 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Husha Baby",
+  "short_name": "Husha Baby",
   "start_url": "index.html",
   "display": "standalone",
+  "play_store_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiatWVIdunf3tQByxsbS5prKZ6oDyCVj1xNX+HFwL4P+GlujqBKi8hb0PAQ4BQfiQjqVTHKomUqYPYR5ko7fJAxCUJf8tP1uV6IhfGAoC6wl4o3FX8qykLPcNMuZUtixJYvYKjkgO9TfIBeZ2QdryNLNRRj5spqz0ecxiaBRH7pWe5HN1fVgof6IuNy8uBVJSIqSC9335LFdX8yUdLSg01WUOCjByknO6U3tOcMsA+xbsShM7F7M7+aYzDXa410Ya7v0YmVlPrhIeDpJrq8voK0FYGKipZo/Ae96w+RZCNoOLjjN/Zep54hh6mYm+xVPqLtMqccyO4rs3FrAyjTmD7QIDAQAB",
   "icons": [{
     "src": "icon.png",
     "sizes": "512x512",
